@@ -1,0 +1,17 @@
+Source: eta-notify
+Section: utils
+Priority: optional
+Maintainer: Hikmet Baş <hikmet.bas@pardus.org.tr>
+Build-Depends: debhelper (>= 9), libqt5widgets5, qtbase5-dev, qtdeclarative5-dev
+Standards-Version: 3.9.6
+Homepage: http://pardus.org.tr
+
+Package: eta-notify
+Architecture: amd64
+Depends: ${shlibs:Depends}, 
+    ${misc:Depends},
+    qml-module-qtquick-controls, 
+    qml-module-qtquick-window2, 
+    qml-module-qtquick2
+Description: ETAP Bildirim mesajı görüntüleyici
+ Liderden gelen bildirimleri görüntüleyen araç.
