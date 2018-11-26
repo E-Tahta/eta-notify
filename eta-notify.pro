@@ -6,10 +6,12 @@ CONFIG += c++11
 
 SOURCES += src/main.cpp \
     src/bridge.cpp \
-    src/singleinstance.cpp
+    src/singleinstance.cpp \
+    src/argumentparser.cpp
 
 HEADERS += src/bridge.h \
-    src/singleinstance.h
+    src/singleinstance.h \
+    src/argumentparser.h
 
 RESOURCES += qml.qrc
 

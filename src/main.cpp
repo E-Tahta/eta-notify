@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QCommandLineParser>
 #include <QDir>
 #include <QCursor>
 #include <QDebug>
@@ -21,54 +20,12 @@ int main(int argc, char *argv[])
     QGuiApplication::setApplicationName("eta-notify");
     QGuiApplication::setApplicationVersion("1.0");
 
-    QCommandLineParser parser;
-    parser.setApplicationDescription("Eta-notify");
-    parser.addHelpOption();
-    parser.addVersionOption();
-
-    QCommandLineOption messageOption(
-                QStringList() << "m" << "message",
-                QCoreApplication::translate("main", "set message to be displayed"),
-                QCoreApplication::translate("main", "display message"));
-    parser.addOption(messageOption);
-
-    QCommandLineOption durationOption(
-                QStringList() << "d" << "duration",
-                QCoreApplication::translate("main", "set duration"),
-                QCoreApplication::translate("main", "seconds"));
-    parser.addOption(durationOption);
-
-    QCommandLineOption layoutOption(
-                QStringList() << "b" << "big",
-                QCoreApplication::translate("main", "set message size to big"));
-    parser.addOption(layoutOption);
-
-    parser.process(app);
-
-    bool hasMessage = parser.isSet(messageOption);
-    bool hasDuration = parser.isSet(durationOption);
-    bool isBig = parser.isSet(layoutOption);
-
-    if (hasMessage) {
-        Bridge::s_message = parser.value(messageOption);
-    } else {
-        qDebug() << "There is no message. Aborting ...";
-        return 0;
-    }
-    if (hasDuration) {
-        Bridge::s_duration = parser.value(durationOption);
-    }
-    if (isBig) {
-        Bridge::s_layout = "big";
-    }
-
     QString pidName = SINGLE_INSTANCE;
     QString username = qgetenv("USER");
     if (username.isEmpty())
         username = qgetenv("USERNAME");
     QString tmpPath= "/tmp/";
     QString pidPath = tmpPath.append(username);
-
 
     QDir dir(pidPath);
     if (!dir.exists()) {

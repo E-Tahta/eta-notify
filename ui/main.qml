@@ -6,10 +6,10 @@ import eta.bridge 1.0
 ApplicationWindow {
     id: main
     flags: Qt.X11BypassWindowManagerHint
-    color: "#383838"
+    color: "transparent"
     visible: true
-    width: 640
-    height: 480
+    width: 500
+    height: 300
 
     Bridge {
         id: bridge
@@ -25,17 +25,26 @@ ApplicationWindow {
         }
     }
 
-    Text {
-        id: message
-        color: "#FF6C00"
-        font.bold: true
-        width: main.width - 20
-        height: main.height -20
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
-        font.pointSize: 12
-        anchors.centerIn: parent
+    Rectangle {
+        id: container
+        anchors.fill: parent
+        color: "#383838"
+        radius: 10
+        Text {
+            id: message
+            color: "#eeeeee"
+            font.bold: true
+            width: main.width - 20
+            height: main.height -20
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            font.pointSize: 18
+            wrapMode: Text.WordWrap
+            anchors.centerIn: parent
+        }
     }
+
+
 
     Component.onCompleted: {
         message.text = bridge.message
@@ -43,7 +52,7 @@ ApplicationWindow {
         if (bridge.layout == "big") {
             main.width = Screen.width
             main.height = Screen.height
-            message.font.pointSize = 20
+            message.font.pointSize = 30
         } else {
             main.x = (Screen.width - main.width) / 2
             main.y = (Screen.height - main.height) / 2

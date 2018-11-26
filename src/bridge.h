@@ -3,6 +3,8 @@
 
 #include <QObject>
 
+class ArgumentParser;
+
 class Bridge : public QObject
 {
     Q_OBJECT
@@ -12,13 +14,12 @@ class Bridge : public QObject
 public:
     explicit Bridge(QObject *parent = 0);
 
-    static QString s_message;
-    static QString s_duration;
-    static QString s_layout;
-
     QString message() const;
     QString duration() const;
     QString layout() const;
+
+private:
+    ArgumentParser *ap;
 
 signals:
 

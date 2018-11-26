@@ -1,25 +1,22 @@
 #include "bridge.h"
-
-QString Bridge::s_message = "No message";
-QString Bridge::s_duration = "3";
-QString Bridge::s_layout = "small";
+#include "argumentparser.h"
 
 Bridge::Bridge(QObject *parent) : QObject(parent)
 {
-
+    ap = new ArgumentParser(this);
 }
 
 QString Bridge::message() const
 {
-    return s_message;
+    return ap->message();
 }
 
 QString Bridge::duration() const
 {
-    return s_duration;
+    return ap->duration();
 }
 
 QString Bridge::layout() const
 {
-    return s_layout;
+    return ap->layout();
 }
