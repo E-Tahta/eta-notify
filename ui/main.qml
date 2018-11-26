@@ -29,7 +29,7 @@ ApplicationWindow {
         id: container
         anchors.fill: parent
         color: "#383838"
-        radius: 10
+        radius: bridge.layout == "small" ? 5 : 0
         Text {
             id: message
             color: "#eeeeee"
@@ -44,8 +44,6 @@ ApplicationWindow {
         }
     }
 
-
-
     Component.onCompleted: {
         message.text = bridge.message
 
@@ -53,7 +51,7 @@ ApplicationWindow {
             main.width = Screen.width
             main.height = Screen.height
             message.font.pointSize = 30
-        } else {
+        } else if (bridge.layout == "small") {
             main.x = (Screen.width - main.width) / 2
             main.y = (Screen.height - main.height) / 2
         }

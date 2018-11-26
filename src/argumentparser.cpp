@@ -31,6 +31,7 @@ ArgumentParser::ArgumentParser(QObject *parent) : QObject(parent)
     parser->addOption(*layoutOption);
 
     parser->process(QCoreApplication::arguments());
+
 }
 
 QString ArgumentParser::message()
@@ -38,6 +39,9 @@ QString ArgumentParser::message()
     bool hasMessage = parser->isSet(*messageOption);
     if (hasMessage) {
         return parser->value(*messageOption);
+    } else {
+        qDebug() << "message not found";
+        exit(1);
     }
     return "Empty Message";
 }

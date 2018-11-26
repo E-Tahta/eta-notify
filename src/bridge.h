@@ -8,9 +8,9 @@ class ArgumentParser;
 class Bridge : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString message READ message)
-    Q_PROPERTY(QString duration READ duration)
-    Q_PROPERTY(QString layout READ layout)
+    Q_PROPERTY(QString message READ message NOTIFY messageChanged)
+    Q_PROPERTY(QString duration READ duration NOTIFY durationChanged)
+    Q_PROPERTY(QString layout READ layout NOTIFY layoutChanged)
 public:
     explicit Bridge(QObject *parent = 0);
 
@@ -21,7 +21,16 @@ public:
 private:
     ArgumentParser *ap;
 
+    QString m_message;
+    QString m_duration;
+    QString m_layout;
+
+    void fillValues();
+
 signals:
+    void messageChanged();
+    void durationChanged();
+    void layoutChanged();
 
 public slots:
 };

@@ -1,22 +1,42 @@
 #include "bridge.h"
 #include "argumentparser.h"
 
-Bridge::Bridge(QObject *parent) : QObject(parent)
+Bridge::Bridge(QObject *parent) : QObject(parent),
+    m_message("Empty Message"),
+    m_duration("5"),
+    m_layout("big")
 {
     ap = new ArgumentParser(this);
+    fillValues();
 }
 
 QString Bridge::message() const
 {
-    return ap->message();
+    return m_message;
 }
 
 QString Bridge::duration() const
 {
-    return ap->duration();
+    return m_duration;
 }
 
 QString Bridge::layout() const
 {
-    return ap->layout();
+    return m_layout;
+}
+
+void Bridge::fillValues()
+{
+    if (m_message != ap->message()) {
+        m_message = ap->message();
+        emit messageChanged();
+    }
+    if (m_duration != ap->duration()) {
+        m_duration = ap->duration();
+        emit durationChanged();
+    }
+    if (m_layout != ap->layout()) {
+        m_layout = ap->layout();
+        emit layoutChanged();
+    }
 }
