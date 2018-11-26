@@ -4,8 +4,10 @@ QT += qml quick core
 
 CONFIG += c++11
 
-SOURCES += main.cpp \
-    bridge.cpp
+SOURCES += src/main.cpp \
+    src/bridge.cpp
+
+HEADERS += src/bridge.h
 
 RESOURCES += qml.qrc
 
@@ -31,5 +33,3 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS += \
-    bridge.h

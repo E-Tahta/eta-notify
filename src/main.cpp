@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Bridge>("eta.bridge",1,0,"Bridge");
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/ui/main.qml")));
 
     return app.exec();
 }
