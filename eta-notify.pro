@@ -5,9 +5,11 @@ QT += qml quick core
 CONFIG += c++11
 
 SOURCES += src/main.cpp \
-    src/bridge.cpp
+    src/bridge.cpp \
+    src/singleinstance.cpp
 
-HEADERS += src/bridge.h
+HEADERS += src/bridge.h \
+    src/singleinstance.h
 
 RESOURCES += qml.qrc
 
