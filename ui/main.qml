@@ -29,6 +29,8 @@ ApplicationWindow {
         id: message
         color: "#FF6C00"
         font.bold: true
+        width: main.width - 20
+        height: main.height -20
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.pointSize: 12
@@ -37,10 +39,6 @@ ApplicationWindow {
 
     Component.onCompleted: {
         message.text = bridge.message
-
-        console.log(bridge.message)
-        console.log(bridge.duration)
-        console.log(bridge.layout)
 
         if (bridge.layout == "big") {
             main.width = Screen.width

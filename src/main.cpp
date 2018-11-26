@@ -7,6 +7,7 @@
 #include <QQmlApplicationEngine>
 #include <QCommandLineParser>
 #include <QDir>
+#include <QCursor>
 #include <QDebug>
 
 
@@ -16,6 +17,7 @@ static int setup_unix_signal_handlers();
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    app.setOverrideCursor(QCursor(Qt::BlankCursor));
     QGuiApplication::setApplicationName("eta-notify");
     QGuiApplication::setApplicationVersion("1.0");
 
