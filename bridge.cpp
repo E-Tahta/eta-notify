@@ -1,7 +1,7 @@
 #include "bridge.h"
 
 QString Bridge::s_message = "No message";
-QString Bridge::s_duration = "10";
+QString Bridge::s_duration = "3";
 QString Bridge::s_layout = "small";
 
 Bridge::Bridge(QObject *parent) : QObject(parent)
