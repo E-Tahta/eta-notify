@@ -6,6 +6,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QDir>
+#include <QtQml>
 #include <QCursor>
 #include <QDebug>
 
