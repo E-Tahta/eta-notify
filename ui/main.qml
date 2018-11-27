@@ -36,10 +36,7 @@ ApplicationWindow {
             id: message
             color: "#eeeeee"
             font.bold: true
-            width:bridge.layout == "small" ? main.maxWidth - 24 :
-                                             main.width  - 100
             verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
             anchors.centerIn: parent
         }
@@ -49,11 +46,19 @@ ApplicationWindow {
         message.text = bridge.message
 
         if (bridge.layout == "big") {
-            message.font.pointSize = 30
             main.width = Screen.width
             main.height = Screen.height
+            message.width = main.width -100
+            message.font.pointSize = 30
+            if (message.paintedWidth < 1700) {
+                message.horizontalAlignment = Text.AlignHCenter
+            } else {
+                message.horizontalAlignment = Text.AlignJustify
+            }
         } else if (bridge.layout == "small") {
             message.font.pointSize = 12
+            message.horizontalAlignment = Text.AlignHCenter
+            message.width =  main.maxWidth - 24
             if (main.maxWidth > message.paintedWidth) {
                 main.width = message.paintedWidth + 24
             } else {
