@@ -1,3 +1,9 @@
+eta-notify (0.0.6) unstable; urgency=medium
+
+  * Fix fullscreen layout margins
+
+ -- Hikmet Baş <hikmet.bas@pardus.org.tr>  Tue, 27 Nov 2018 15:32:06 +0300
+
 eta-notify (0.0.5) unstable; urgency=medium
 
   * Change small layout margins
