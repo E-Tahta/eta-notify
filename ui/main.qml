@@ -36,7 +36,8 @@ ApplicationWindow {
             id: message
             color: "#eeeeee"
             font.bold: true
-            width: main.maxWidth - 10
+            width:bridge.layout == "small" ? main.maxWidth - 24 :
+                                             main.width  - 100
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
