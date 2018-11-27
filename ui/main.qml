@@ -52,8 +52,11 @@ ApplicationWindow {
             main.height = Screen.height
             message.font.pointSize = 30
         } else if (bridge.layout == "small") {
-            main.x = (Screen.width - main.width) / 2
-            main.y = (Screen.height - main.height) / 2
+            main.width = 300
+            main.height = 180
+            main.x= 1560
+            main.y=220
+            message.font.pointSize = 12
         }
 
         timer.interval = parseInt(bridge.duration) * 1000
