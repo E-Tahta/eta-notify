@@ -54,11 +54,11 @@ ApplicationWindow {
         } else if (bridge.layout == "small") {
             message.font.pointSize = 12
             if (main.maxWidth > message.paintedWidth) {
-                main.width = message.paintedWidth + 10
+                main.width = message.paintedWidth + 24
             } else {
                 main.width = main.maxWidth;
             }
-            main.height = message.paintedHeight + 10
+            main.height = message.paintedHeight + 24
             main.x= 1700 - (main.width / 2)
             main.y=220
         }
