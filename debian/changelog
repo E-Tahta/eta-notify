@@ -1,3 +1,12 @@
+eta-notify (0.0.3) unstable; urgency=medium
+
+  * Update pro file and ui improvements
+  * Add argument parsing class
+  * Improve argument parser & bridge interaction
+  * Fix build issue
+
+ -- Hikmet Baş <hikmet.bas@pardus.org.tr>  Tue, 27 Nov 2018 07:27:46 +0000
+
 eta-notify (0.0.2) unstable; urgency=medium
 
   * Add bridge
