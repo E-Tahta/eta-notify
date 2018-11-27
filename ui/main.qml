@@ -11,6 +11,8 @@ ApplicationWindow {
     width: 500
     height: 300
 
+    property int maxWidth: 300
+
     Bridge {
         id: bridge
     }
@@ -34,11 +36,9 @@ ApplicationWindow {
             id: message
             color: "#eeeeee"
             font.bold: true
-            width: main.width - 20
-            height: main.height -20
+            width: main.maxWidth - 10
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
-            font.pointSize: 18
             wrapMode: Text.WordWrap
             anchors.centerIn: parent
         }
@@ -48,17 +48,20 @@ ApplicationWindow {
         message.text = bridge.message
 
         if (bridge.layout == "big") {
+            message.font.pointSize = 30
             main.width = Screen.width
             main.height = Screen.height
-            message.font.pointSize = 30
         } else if (bridge.layout == "small") {
-            main.width = 300
-            main.height = 180
-            main.x= 1560
-            main.y=220
             message.font.pointSize = 12
+            if (main.maxWidth > message.paintedWidth) {
+                main.width = message.paintedWidth + 10
+            } else {
+                main.width = main.maxWidth;
+            }
+            main.height = message.paintedHeight + 10
+            main.x= 1700 - (main.width / 2)
+            main.y=220
         }
-
         timer.interval = parseInt(bridge.duration) * 1000
         timer.start()
     }
